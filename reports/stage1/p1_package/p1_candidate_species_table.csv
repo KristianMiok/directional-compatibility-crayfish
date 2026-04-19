@@ -1,0 +1,45 @@
+species_name,total_records,records_high_accuracy,records_snapped_le_200m,records_deduplicated_segment,native_records_deduplicated_segment,passes_native_200,loss_vs_all_dedup_pct,n_basins,temporal_span_years,native_only_flag
+Procambarus clarkii,39725,18449,16525,9606,1915,True,80.1,1522,171,False
+Faxonius limosus,8176,5903,5487,4174,363,True,91.3,200,121,False
+Austropotamobius pallipes,4741,3470,3369,2955,2728,True,7.7,82,166,False
+Procambarus acutus,2731,2728,2555,2357,2275,True,3.5,128,123,False
+Faxonius virilis,2613,2609,2498,2268,1790,True,21.1,50,131,False
+Astacus astacus,5548,3016,2825,2058,2058,True,0.0,219,155,True
+Faxonius rusticus,2117,2109,2054,1846,1188,True,35.6,22,117,False
+Pontastacus leptodactylus,3033,2127,1836,1496,750,True,49.9,251,202,False
+Cambarus bartonii,1475,1474,1429,1341,1341,True,0.0,28,117,True
+Cambarus robustus,1346,1346,1317,1244,1240,True,0.3,12,109,False
+Faxonius immunis,1448,1396,1319,1232,1227,True,0.4,15,132,False
+Faxonius obscurus,1285,1285,1273,1167,878,True,24.8,13,118,False
+Lacunicambarus diogenes,1255,1255,1148,1117,1117,True,0.0,73,120,True
+Faxonius propinquus,1198,1196,1159,1069,1064,True,0.5,10,124,False
+Austropotamobius torrentium,3315,1703,1639,1032,1028,True,0.4,45,222,False
+Cambarus latimanus,1126,1126,1059,1008,1008,True,0.0,22,96,True
+Faxonius sanbornii,1049,1049,1027,951,951,True,0.0,6,100,True
+Cambarus striatus,886,886,824,747,747,True,0.0,16,95,True
+Austropotamobius fulcisianus,1970,1590,1394,744,205,True,72.4,92,197,False
+Cambarus carinirostris,788,788,781,738,738,True,0.0,6,73,True
+Faxonius cristavarius,770,770,765,726,726,True,0.0,6,85,True
+Creaserinus fodiens,796,795,682,622,622,True,0.0,38,118,True
+Cambarus bartonii bartonii,687,659,641,593,593,True,0.0,19,112,True
+Cambarus bartonii cavatus,524,524,506,486,486,True,0.0,2,109,True
+Cambarus acuminatus,524,524,501,473,473,True,0.0,26,113,True
+Faxonius neglectus,445,445,439,400,400,True,0.0,5,68,True
+Procambarus spiculifer,383,382,351,340,340,True,0.0,23,91,False
+Faxonius luteus,354,354,349,333,329,True,1.2,1,92,False
+Lacunicambarus polychromatus,376,376,359,327,327,True,0.0,6,113,True
+Cambarus hobbsorum,352,352,350,301,301,True,0.0,7,45,True
+Cambarus sciotensis,335,335,332,299,299,True,0.0,3,84,True
+Faxonius punctimanus,302,302,297,284,284,True,0.0,1,70,True
+Cambarus tenebrosus,289,289,280,270,270,True,0.0,2,109,True
+Lacunicambarus thomai,297,297,276,266,266,True,0.0,6,116,True
+Faxonius ozarkae,281,281,272,260,243,True,6.5,3,72,False
+Cambarus dubius,282,282,269,258,258,True,0.0,5,71,True
+Procambarus troglodytes,295,294,256,251,251,True,0.0,20,52,True
+Procambarus versutus,284,284,259,251,251,True,0.0,15,91,True
+Cambarus theepiensis,257,257,253,244,244,True,0.0,2,58,True
+Procambarus gracilis,287,287,252,244,244,True,0.0,3,122,True
+Cambarus longulus,249,249,246,231,231,True,0.0,7,74,True
+Faxonius placidus,236,236,220,203,203,True,0.0,2,93,True
+Pacifastacus leniusculus,6551,5432,5042,4285,115,False,97.3,273,99,False
+Cherax quadricarinatus,752,682,608,408,4,False,99.0,175,157,False

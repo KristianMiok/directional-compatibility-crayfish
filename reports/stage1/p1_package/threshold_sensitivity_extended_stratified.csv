@@ -1,0 +1,8 @@
+threshold,n_species_total,by_family_json,by_continent_json
+20,193,"{""Astacidae"": 7, ""Cambaridae"": 180, ""Parastacidae"": 6}","{""Africa"": 1, ""Asia"": 1, ""Europe"": 10, ""North America"": 176, ""Oceania"": 1, ""South America"": 4}"
+30,158,"{""Astacidae"": 7, ""Cambaridae"": 148, ""Parastacidae"": 3}","{""Africa"": 1, ""Asia"": 1, ""Europe"": 10, ""North America"": 144, ""Oceania"": 1, ""South America"": 1}"
+50,118,"{""Astacidae"": 7, ""Cambaridae"": 109, ""Parastacidae"": 2}","{""Africa"": 1, ""Asia"": 1, ""Europe"": 10, ""North America"": 105, ""Oceania"": 1}"
+80,82,"{""Astacidae"": 6, ""Cambaridae"": 75, ""Parastacidae"": 1}","{""Africa"": 1, ""Europe"": 9, ""North America"": 72}"
+150,53,"{""Astacidae"": 6, ""Cambaridae"": 46, ""Parastacidae"": 1}","{""Africa"": 1, ""Europe"": 8, ""North America"": 44}"
+200,44,"{""Astacidae"": 6, ""Cambaridae"": 37, ""Parastacidae"": 1}","{""Africa"": 1, ""Europe"": 8, ""North America"": 35}"
+500,24,"{""Astacidae"": 6, ""Cambaridae"": 18}","{""Europe"": 8, ""North America"": 16}"

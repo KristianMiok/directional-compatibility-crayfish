@@ -1,0 +1,45 @@
+species_name,all_records_deduplicated_segment_recomputed,native_records_deduplicated_segment,passes_native_200,loss_vs_all_dedup_pct
+Astacus astacus,2058,2058,True,0.0
+Austropotamobius fulcisianus,744,205,True,72.4
+Austropotamobius pallipes,2955,2728,True,7.7
+Austropotamobius torrentium,1032,1028,True,0.4
+Cambarus acuminatus,473,473,True,0.0
+Cambarus bartonii,1341,1341,True,0.0
+Cambarus bartonii bartonii,593,593,True,0.0
+Cambarus bartonii cavatus,486,486,True,0.0
+Cambarus carinirostris,738,738,True,0.0
+Cambarus dubius,258,258,True,0.0
+Cambarus hobbsorum,301,301,True,0.0
+Cambarus latimanus,1008,1008,True,0.0
+Cambarus longulus,231,231,True,0.0
+Cambarus robustus,1244,1240,True,0.3
+Cambarus sciotensis,299,299,True,0.0
+Cambarus striatus,747,747,True,0.0
+Cambarus tenebrosus,270,270,True,0.0
+Cambarus theepiensis,244,244,True,0.0
+Cherax quadricarinatus,408,4,False,99.0
+Creaserinus fodiens,622,622,True,0.0
+Faxonius cristavarius,726,726,True,0.0
+Faxonius immunis,1232,1227,True,0.4
+Faxonius limosus,4174,363,True,91.3
+Faxonius luteus,333,329,True,1.2
+Faxonius neglectus,400,400,True,0.0
+Faxonius obscurus,1167,878,True,24.8
+Faxonius ozarkae,260,243,True,6.5
+Faxonius placidus,203,203,True,0.0
+Faxonius propinquus,1069,1064,True,0.5
+Faxonius punctimanus,284,284,True,0.0
+Faxonius rusticus,1846,1188,True,35.6
+Faxonius sanbornii,951,951,True,0.0
+Faxonius virilis,2268,1790,True,21.1
+Lacunicambarus diogenes,1117,1117,True,0.0
+Lacunicambarus polychromatus,327,327,True,0.0
+Lacunicambarus thomai,266,266,True,0.0
+Pacifastacus leniusculus,4285,115,False,97.3
+Pontastacus leptodactylus,1496,750,True,49.9
+Procambarus acutus,2357,2275,True,3.5
+Procambarus clarkii,9606,1915,True,80.1
+Procambarus gracilis,244,244,True,0.0
+Procambarus spiculifer,340,340,True,0.0
+Procambarus troglodytes,251,251,True,0.0
+Procambarus versutus,251,251,True,0.0

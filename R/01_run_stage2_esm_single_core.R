@@ -1,0 +1,183 @@
+suppressPackageStartupMessages({
+  library(ecospat)
+  library(biomod2)
+  library(terra)
+  library(dismo)
+})
+
+args <- commandArgs(trailingOnly = TRUE)
+
+get_arg <- function(flag, default = NULL) {
+  i <- which(args == flag)
+  if (length(i) == 0) return(default)
+  if (i[length(i)] == length(args)) stop(sprintf("Missing value for %s", flag))
+  args[i[length(i)] + 1]
+}
+
+species <- get_arg("--species")
+predictor_set <- get_arg("--predictor-set")
+core <- toupper(get_arg("--core", "GLM"))
+input_csv <- get_arg("--input-csv")
+out_dir <- get_arg("--output-dir", "data/processed/stage2_pilot")
+pa_reps <- as.integer(get_arg("--pa-reps", "5"))
+cv_reps <- as.integer(get_arg("--cv-reps", "5"))
+seed <- as.integer(get_arg("--seed", "42"))
+
+if (is.null(species) || is.null(predictor_set)) {
+  stop("Required: --species and --predictor-set")
+}
+if (!(core %in% c("GLM", "GBM"))) {
+  stop("--core must be GLM or GBM")
+}
+
+slug <- gsub("[^a-z0-9]+", "_", tolower(species))
+if (is.null(input_csv)) {
+  input_csv <- file.path("data/processed/stage2_pilot", sprintf("%s__%s_biomod_pilot.csv", slug, predictor_set))
+}
+if (!file.exists(input_csv)) {
+  stop(sprintf("Input CSV not found: %s", input_csv))
+}
+
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+dat <- read.csv(input_csv, check.names = FALSE)
+
+presence_candidates <- c("presence", "resp", "occ", "occurrence", "pa", "Presence", "pres_pa", "response")
+presence_col <- presence_candidates[presence_candidates %in% names(dat)][1]
+if (is.na(presence_col)) stop(sprintf("No presence column found. Available columns: %s", paste(names(dat), collapse = ", ")))
+
+lon_candidates <- c("lon", "x", "X_WGS84_DD", "longitude", "Longitude", "decimalLongitude", "long_or", "LONG_OR")
+lat_candidates <- c("lat", "y", "Y_WGS84_DD", "latitude", "Latitude", "decimalLatitude", "lat_or", "LAT_OR")
+lon_col <- lon_candidates[lon_candidates %in% names(dat)][1]
+lat_col <- lat_candidates[lat_candidates %in% names(dat)][1]
+if (is.na(lon_col) || is.na(lat_col)) stop(sprintf("Could not detect coordinate columns. Available columns: %s", paste(names(dat), collapse = ", ")))
+
+pred_cols <- setdiff(names(dat), c(
+  "species","species_slug","predictor_set",
+  presence_candidates,
+  lon_candidates, lat_candidates,
+  "CellID","FID","cell_id","fid","subc_id","basin_id","Crayfish_scientific_name"
+))
+if (length(pred_cols) < 2) stop("Need at least 2 predictor columns")
+
+resp <- dat[[presence_col]]
+xy <- as.matrix(dat[, c(lon_col, lat_col)])
+env <- dat[, pred_cols, drop = FALSE]
+
+cat(sprintf("Using presence column: %s\n", presence_col))
+cat(sprintf("Using longitude column: %s\n", lon_col))
+cat(sprintf("Using latitude column: %s\n", lat_col))
+cat(sprintf("Predictor count: %d\n", length(pred_cols)))
+
+has_true_absences <- any(resp == 0, na.rm = TRUE)
+has_presences <- any(resp == 1, na.rm = TRUE)
+
+if (!has_presences) stop("No presences found in response column")
+if (!has_true_absences) {
+  biomod_data <- BIOMOD_FormatingData(
+    resp.var = resp,
+    expl.var = env,
+    resp.xy = xy,
+    resp.name = slug,
+    PA.nb.rep = pa_reps,
+    PA.nb.absences = sum(resp == 1, na.rm = TRUE),
+    PA.strategy = "random",
+    na.rm = TRUE
+  )
+} else {
+  cat("Detected true absences in input; skipping pseudo-absence generation\n")
+  biomod_data <- BIOMOD_FormatingData(
+    resp.var = resp,
+    expl.var = env,
+    resp.xy = xy,
+    resp.name = slug,
+    na.rm = TRUE
+  )
+}
+
+modeling_id <- sprintf("%s__%s__esm_%s", slug, predictor_set, tolower(core))
+
+mods <- BIOMOD_Modeling(
+  bm.format = biomod_data,
+  modeling.id = modeling_id,
+  models = core,
+  CV.strategy = "random",
+  CV.nb.rep = cv_reps,
+  CV.perc = 0.8,
+  OPT.strategy = "bigboss",
+  metric.eval = c("AUCroc", "TSS", "KAPPA"),
+  var.import = 0,
+  seed.val = seed
+)
+
+eval_df <- get_evaluations(mods)
+cat("\nEvaluation data frame columns:\n"); print(names(eval_df))
+cat("First few rows:\n"); print(head(eval_df, 3))
+
+metric_map <- c(AUCroc = "AUC", ROC = "AUC", TSS = "TSS", KAPPA = "Kappa")
+eval_df$metric <- ifelse(
+  as.character(eval_df$metric.eval) %in% names(metric_map),
+  metric_map[as.character(eval_df$metric.eval)],
+  as.character(eval_df$metric.eval)
+)
+
+wide <- reshape(
+  eval_df[, c("full.name", "PA", "run", "algo", "metric", "validation")],
+  idvar = c("full.name", "PA", "run", "algo"),
+  timevar = "metric",
+  direction = "wide"
+)
+names(wide) <- sub("^validation\\.", "", names(wide))
+wide$species <- species
+wide$species_slug <- slug
+wide$model_core <- core
+wide$predictor_set <- predictor_set
+
+if (!("AUC" %in% names(wide))) wide$AUC <- NA_real_
+if (!("TSS" %in% names(wide))) wide$TSS <- NA_real_
+if (!("Kappa" %in% names(wide))) wide$Kappa <- NA_real_
+
+wide$Boyce <- NA_real_
+wide$MPA <- NA_real_
+
+pred_df <- try(get_predictions(mods), silent = TRUE)
+if (!inherits(pred_df, "try-error") && is.data.frame(pred_df) && "pred" %in% names(pred_df)) {
+  cat("Predictions data frame columns:\n"); print(names(pred_df))
+  vals_all <- as.numeric(pred_df$pred)
+  if (max(vals_all, na.rm = TRUE) > 1.01) vals_all <- vals_all / 1000
+
+  for (i in seq_len(nrow(wide))) {
+    run_name <- as.character(wide$full.name[i])
+    sub_pred <- pred_df[as.character(pred_df$full.name) == run_name, , drop = FALSE]
+    if (nrow(sub_pred) == 0) next
+    vals <- as.numeric(sub_pred$pred)
+    if (max(vals, na.rm = TRUE) > 1.01) vals <- vals / 1000
+
+    if ("points" %in% names(sub_pred)) {
+      pts <- as.integer(sub_pred$points)
+      obs <- resp[pts]
+    } else if (length(vals) == length(resp)) {
+      obs <- resp
+    } else {
+      next
+    }
+    ok <- is.finite(vals) & is.finite(obs)
+    if (sum(ok) < 10 || length(unique(obs[ok])) < 2) next
+
+    eb <- try(ecospat.boyce(fit = vals[ok],
+                            obs = vals[ok][obs[ok] == 1],
+                            PEplot = FALSE), silent = TRUE)
+    if (!inherits(eb, "try-error")) {
+      if (!is.null(eb$cor)) wide$Boyce[i] <- as.numeric(eb$cor)
+      else if (!is.null(eb$Spearman.cor)) wide$Boyce[i] <- as.numeric(eb$Spearman.cor)
+    }
+    wide$MPA[i] <- mean(vals[ok] >= 0.5)
+  }
+}
+
+names(wide)[names(wide) == "full.name"] <- "dataset"
+names(wide)[names(wide) == "PA"] <- "pa"
+
+outfile <- file.path(out_dir, sprintf("%s__%s_esm_%s_evaluations.csv", slug, predictor_set, tolower(core)))
+write.csv(wide[, intersect(c("species","species_slug","predictor_set","model_core","dataset","pa","run","algo","AUC","TSS","Boyce","Kappa","MPA"), names(wide))], outfile, row.names = FALSE)
+cat(sprintf("Wrote %s\n", outfile))
