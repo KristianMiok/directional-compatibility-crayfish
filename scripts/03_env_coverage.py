@@ -39,18 +39,19 @@ def main(config_path: str) -> None:
                        "species_name"])
     log.info("Coverage restricted to %d species at threshold %d",
              len(keep), cfg["thresholds"]["default"])
-    woc = woc[woc["species_name"].isin(keep)]
+    woc = woc[woc["Crayfish_scientific_name"].isin(keep)]
 
     ec_cfg = cfg.get("env_coverage", {})
     coverage = env_coverage(
         woc,
         cfg["env_variables"],
         native_only=ec_cfg.get("native_only", False),
-        native_status_column=ec_cfg.get("native_status_column", "native_status"),
-        native_value=ec_cfg.get("native_value", "native"),
+        native_status_column=ec_cfg.get("native_status_column", "Status"),
+        native_values=ec_cfg.get("native_values", ["Native", "Type locality"]),
     )
     if ec_cfg.get("native_only"):
-        log.info("env_coverage computed on native-only records")
+        log.info("env_coverage computed on native-only records (%s)",
+                 ec_cfg.get("native_values"))
     out_csv = Path(cfg["paths"]["processed_dir"]) / "env_coverage.csv"
     coverage.to_csv(out_csv, index=False)
     log.info("Wrote %s (%d rows)", out_csv, len(coverage))

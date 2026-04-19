@@ -22,7 +22,7 @@ def main(config_path: str) -> None:
     woc_path = cfg["paths"]["woc_occurrences"]
     log.info("Loading WoC occurrences from %s", woc_path)
     woc = load_woc(woc_path)
-    log.info("Loaded %d raw records across %d species", len(woc), woc["species_name"].nunique())
+    log.info("Loaded %d raw records across %d species", len(woc), woc["Crayfish_scientific_name"].nunique())
 
     inv = build_inventory(woc, max_snap_m=cfg["filtering"]["max_snap_distance_m"])
     out = Path(cfg["paths"]["processed_dir"]) / "species_inventory.csv"

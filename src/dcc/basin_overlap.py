@@ -21,7 +21,8 @@ def basin_overlap_matrices(
     (shared) and 1.0 (Jaccard).
     """
     sp_basins: dict[str, set] = (
-        woc.groupby("species_name")[basin_id_column].apply(lambda s: set(s.dropna())).to_dict()
+        woc.groupby("Crayfish_scientific_name")[basin_id_column]
+        .apply(lambda s: set(s.dropna())).to_dict()
     )
     species = sorted(sp_basins)
     n = len(species)
