@@ -1,0 +1,42 @@
+# Data — never commit (ignore contents but allow git to descend, so .gitkeep exceptions work)
+data/**/*
+!data/**/
+!data/**/.gitkeep
+logs/
+*.h5
+*.hdf5
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Build / dist
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Reports — keep figures and markdown, ignore working files
+reports/**/*.tmp
+reports/**/_scratch/
+
+# Pre-commit
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Generated outputs from running the pipeline
+reports/stage1/threshold_sensitivity_plot.png
+reports/stage1/completeness/
+reports/figures/*.png
+!data/**/.gitkeep

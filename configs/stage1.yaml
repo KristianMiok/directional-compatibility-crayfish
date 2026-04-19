@@ -1,0 +1,74 @@
+# Stage 1 — Data Audit and Species Selection
+# Edit values here, not in code.
+
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  external_dir: data/external
+  reports_dir: reports/stage1
+
+  # Expected input files (drop these into data/raw/)
+  woc_occurrences: data/raw/woc_occurrences.csv      # World of Crayfish export
+  geofresh_segments: data/raw/geofresh_segments.gpkg # river network with segment IDs
+  basin_polygons: data/external/basins.gpkg          # for Task 1.4
+
+# Filtering rules applied during inventory (Task 1.1)
+filtering:
+  high_accuracy_only: true
+  max_snap_distance_m: 200
+  dedup_strategy: segment   # one record per (species, segment_id)
+
+# Threshold sensitivity (Task 1.2)
+thresholds:
+  values: [80, 200, 500]
+  default: 200    # candidate threshold to flag in plots
+
+# Environmental coverage (Task 1.3)
+env_coverage:
+  # If true, restrict both per-species range and global envelope to records
+  # marked native. Matches the SDM training set in Stage 2 — the relevant
+  # denominator for cohort decisions at P1.
+  native_only: true
+  native_status_column: native_status
+  native_value: native
+
+# Key environmental variables (Task 1.3, continued)
+# These are the 6 key variables from the plan. Adjust once we see what
+# GeoFRESH exposes cleanly — leaving placeholders for raster/column names.
+env_variables:
+  - name: mean_annual_temp
+    source: geofresh
+    column: mean_ann_temp_c
+  - name: annual_precipitation
+    source: geofresh
+    column: ann_precip_mm
+  - name: stream_flow_mean
+    source: geofresh
+    column: q_mean_m3s
+  - name: elevation
+    source: geofresh
+    column: elev_m
+  - name: slope
+    source: geofresh
+    column: slope_pct
+  - name: dominant_landcover
+    source: geofresh
+    column: lc_dominant
+    categorical: true
+
+# Basin overlap (Task 1.4)
+basin_overlap:
+  basin_id_column: basin_id    # column name in the WoC export (see WOC_REQUIRED_COLUMNS)
+
+# Invasion audit (Task 1.5)
+invasion_audit:
+  # Records flagged by any of these conditions go to manual review
+  flag_outside_continent: true       # record on a continent != species' native continent
+  flag_post_year: 1900               # records after this year in non-native basins are suspect
+  native_range_source: data/external/native_ranges.csv  # species_name -> list of native basin/continent ids
+
+# Logging
+logging:
+  level: INFO
+  file: logs/stage1.log
