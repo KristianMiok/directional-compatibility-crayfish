@@ -209,6 +209,33 @@ This result supports two conclusions:
 1. the **≥200 threshold remains a robust default recommendation**
 2. strict **native-only training is essential** in Stage 2, because some apparently data-rich species are strongly inflated by non-native records
 
+## 9.1 Native-only threshold stability check
+
+Because the framework is explicitly native-only, I ran an additional sensitivity check within the current ≥200 cohort using the same Stage 1 quality filters (high accuracy, snap distance ≤200 m, deduplication by segment), but restricting the records to `Native` + `Type locality`.
+
+This check showed that the current threshold recommendation is highly stable under native-only filtering:
+
+- current cohort at ≥200: **44 species**
+- still ≥200 after native-only restriction: **42 species**
+- drop below threshold after native-only restriction: **2 species**
+
+The two species that fall below the threshold are:
+
+- **Cherax quadricarinatus**: 408 → 4 native deduplicated records
+- **Pacifastacus leniusculus**: 4285 → 115 native deduplicated records
+
+Several other widespread species remain above threshold but lose a large proportion of records when non-native occurrences are removed. The strongest examples are:
+
+- **Faxonius limosus**: 4174 → 363
+- **Procambarus clarkii**: 9606 → 1915
+- **Austropotamobius fulcisianus**: 744 → 205
+- **Pontastacus leptodactylus**: 1496 → 750
+
+This result supports two conclusions:
+
+1. the **≥200 threshold remains a robust default recommendation**
+2. strict **native-only training is essential** in Stage 2, because some apparently data-rich species are strongly inflated by non-native records
+
 ## 10. Conclusion for Decision Point P1
 
 Stage 1 is now complete on the real master dataset.
