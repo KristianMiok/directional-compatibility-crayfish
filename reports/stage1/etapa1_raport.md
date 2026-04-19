@@ -57,7 +57,11 @@ Threshold sensitivity was assessed using `records_deduplicated_segment` as the b
 
 The number of retained species at each threshold was:
 
+- **≥20 records**: 193 species
+- **≥30 records**: 158 species
+- **≥50 records**: 118 species
 - **≥80 records**: 82 species
+- **≥150 records**: 53 species
 - **≥200 records**: 44 species
 - **≥500 records**: 24 species
 
@@ -68,19 +72,52 @@ These values are based on the current filtering pipeline:
 
 ### Interpretation
 
-The relaxed threshold (≥80) maximizes taxonomic breadth, but likely includes more species with narrower environmental representation and greater model instability.
+The extended threshold curve shows that the main transition in cohort size happens in the low-to-moderate record range. The cohort remains relatively broad at ≥20–50 records (193, 158, and 118 species respectively), but contracts sharply by ≥80 and above.
 
-The strict threshold (≥500) gives a very conservative cohort, but reduces the study to only 24 species and would remove many taxa that appear biologically informative and otherwise usable.
+This pattern supports the concern that a ≥200 threshold is too restrictive for the scope of a global macroecological framework intended to include narrow-range endemics. In particular, many potentially informative species with distinctive and localized niches are excluded between the ≥50 and ≥200 range.
 
-The intermediate threshold (≥200) appears to provide the best balance between model robustness and cohort diversity. It yields a cohort of 44 species, which is still large enough for a genuinely macroecological comparison while remaining restrictive enough to avoid the weakest data-poor species.
+The results therefore suggest that the final threshold should likely be chosen in the lower range, probably between **≥30 and ≥50**, depending on how conservative we want to be in Stage 2.
 
 ### Kristian’s recommendation for P1
 
-At this stage, my recommendation is to use **≥200 deduplicated segment-level records** as the default threshold for Manuscript #5.
+At this stage, I no longer recommend ≥200 as the final threshold. Based on the extended sensitivity analysis with taxonomic and geographic stratification, the most plausible decision range for P1 is **≥30 to ≥50 deduplicated segment-level records**, with **≥30** currently looking like the best working candidate.
 
-This threshold keeps the cohort broad enough for interspecific compatibility analysis, while avoiding the large drop in data quality expected under a more permissive threshold.
+The reason is that **≥50** still causes a strong contraction of taxonomic and geographic breadth: the cohort drops to 118 species, South America disappears entirely, and Parastacidae is reduced to only 2 species. By contrast, **≥30** retains 158 species and preserves a broader representation across families and continents, including South America and Oceania.
+
+For P1, I therefore suggest:
+- **primary working threshold:** ≥30
+- **stricter sensitivity threshold:** ≥50
+- **lower exploratory bound:** ≥20
+
+This gives a substantially broader and more biogeographically representative cohort while still excluding the weakest data-poor tail.
 
 ---
+
+## 4.1 Sequential filter breakdown
+
+To identify where the cohort shrinks most strongly, I evaluated the filtering pipeline step by step.
+
+Sequential results:
+
+- **raw**: 115,191 records / 456 species
+- **high accuracy only**: 83,545 records / 455 species
+- **snap distance ≤200 m**: 77,719 records / 448 species
+- **deduplicated by segment**: 62,415 records / 448 species
+- **native only**: 43,079 records / 443 species
+
+The largest record-level reductions are caused by:
+
+- the **high-accuracy filter** (−31,646 records)
+- the **native-only restriction** (−19,336 records)
+- **segment-level deduplication** (−15,304 records)
+
+By contrast, species-level loss is modest at each step:
+- high accuracy: −1 species
+- snap distance: −7 species
+- deduplication: −0 species
+- native only: −5 species
+
+This suggests that the current pipeline is primarily reducing duplicate or lower-quality records rather than collapsing the species pool outright. The evidence does not indicate that segment-level deduplication is the main driver of species exclusion.
 
 ## 5. Environmental coverage
 
@@ -160,6 +197,38 @@ This suggests a strong representation of North American cambarids, with smaller 
 At the moment, continent and family fields are not directly available in the master dataset, so the current Stage 1 outputs do not yet include a complete continent-level or family-level stratification. If needed, these can be added later via an external taxonomy / geography enrichment step.
 
 ---
+
+## 8.1 Taxonomic and geographic stratification of threshold sensitivity
+
+The extended threshold analysis was also stratified by family and modal continent.
+
+### Family pattern
+
+Retained species by family:
+
+- **≥20**: Astacidae 7, Cambaridae 180, Parastacidae 6
+- **≥30**: Astacidae 7, Cambaridae 148, Parastacidae 3
+- **≥50**: Astacidae 7, Cambaridae 109, Parastacidae 2
+- **≥80**: Astacidae 6, Cambaridae 75, Parastacidae 1
+- **≥150**: Astacidae 6, Cambaridae 46, Parastacidae 1
+- **≥200**: Astacidae 6, Cambaridae 37, Parastacidae 1
+- **≥500**: Astacidae 6, Cambaridae 18, Parastacidae 0
+
+This shows that stricter thresholds disproportionately remove Parastacidae and increasingly reduce the macroecological breadth of the dataset.
+
+### Geographic pattern
+
+Retained species by modal continent:
+
+- **≥20**: North America 176, Europe 10, South America 4, Oceania 1, Asia 1, Africa 1
+- **≥30**: North America 144, Europe 10, South America 1, Oceania 1, Asia 1, Africa 1
+- **≥50**: North America 105, Europe 10, Oceania 1, Asia 1, Africa 1, South America 0
+- **≥80**: North America 72, Europe 9, Africa 1
+- **≥150**: North America 44, Europe 8, Africa 1
+- **≥200**: North America 35, Europe 8, Africa 1
+- **≥500**: North America 16, Europe 8
+
+The main implication is that higher thresholds quickly collapse the already limited non-North-American representation. In particular, South America disappears completely by ≥50, and Oceania disappears by ≥80.
 
 ## 9. Data-quality issues and surprises
 
