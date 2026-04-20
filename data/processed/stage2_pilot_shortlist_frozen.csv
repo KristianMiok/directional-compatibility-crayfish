@@ -1,0 +1,27 @@
+species_name,family,genus,total_records,records_high_accuracy,records_snapped_le_200m,records_deduplicated_segment,records_after_thinning,n_basins,n_countries,n_continents,modal_continent,range_bbox_area_km2,native_only_flag,temporal_span_years,temporal_density,ecological_strategy,pilot_role,is_low_n_anchor
+Pacifastacus leniusculus,Astacidae,Pacifastacus,6551,5432,5042,4285,4285,273,28,3,Europe,44058175.194844626,False,99,66.17171717171718,,Astacidae / Europe / mixed invasive-origin,False
+Austropotamobius pallipes,Astacidae,Austropotamobius,4741,3470,3369,2955,2955,82,8,1,Europe,1227060.348870506,False,166,28.56024096385542,,Astacidae / Europe / high-N mixed,False
+Astacus astacus,Astacidae,Astacus,5548,3016,2825,2058,2058,219,31,1,Europe,4300464.605250281,True,155,35.79354838709678,,Astacidae / Europe / high-N native,False
+Pontastacus leptodactylus,Astacidae,Pontastacus,3033,2127,1836,1496,1496,251,37,2,Europe,20468067.578468397,False,202,15.014851485148515,,Astacidae / Europe / mixed widespread,False
+Austropotamobius torrentium,Astacidae,Austropotamobius,3315,1703,1639,1032,1032,45,20,2,Europe,1137533.0681547627,False,222,14.932432432432432,,Astacidae / Europe / mixed,False
+Austropotamobius fulcisianus,Astacidae,Austropotamobius,1970,1590,1394,744,744,92,11,1,Europe,1813948.3046651697,False,197,10.0,,Astacidae / Europe / mixed,False
+Austropotamobius bihariensis,Astacidae,Austropotamobius,104,104,100,57,57,3,1,1,Europe,3786.239081798778,True,6,17.333333333333332,,Astacidae / Europe / low-N anchor,True
+Cambaroides similis,Cambaridae,Cambaroides,59,58,56,56,56,31,1,1,Asia,82738.90395099447,True,131,0.4503816793893129,,Cambaridae / Asia / medium-N native,False
+Procambarus clarkii,Cambaridae,Procambarus,39725,18449,16525,9606,9606,1522,50,5,Europe,215907265.92273957,False,171,232.30994152046785,,Cambaridae / Europe / very high-N mixed,False
+Faxonius limosus,Cambaridae,Faxonius,8176,5903,5487,4174,4174,200,24,2,Europe,10200640.293496847,False,121,67.5702479338843,,Cambaridae / Europe / high-N mixed,False
+Procambarus virginalis,Cambaridae,Procambarus,280,269,234,132,132,37,17,2,Europe,6033069.353732571,False,15,18.666666666666668,,Cambaridae / Europe / special-case mixed,False
+Procambarus acutus,Cambaridae,Procambarus,2731,2728,2555,2357,2357,128,3,2,North America,13406152.19435102,False,123,22.203252032520325,,Cambaridae / North America / high-N mixed,False
+Faxonius virilis,Cambaridae,Faxonius,2613,2609,2498,2268,2268,50,4,2,North America,15226535.34638463,False,131,19.946564885496183,,Cambaridae / North America / high-N mixed,False
+Faxonius rusticus,Cambaridae,Faxonius,2117,2109,2054,1846,1846,22,3,2,North America,8282671.345723759,False,117,18.094017094017097,,Cambaridae / North America / high-N mixed,False
+Cambarus robustus,Cambaridae,Cambarus,1346,1346,1317,1244,1244,12,2,1,North America,788999.0045554012,False,109,12.34862385321101,,Cambaridae / North America / high-N mixed,False
+Faxonius immunis,Cambaridae,Faxonius,1448,1396,1319,1232,1232,15,4,2,North America,8888675.168872582,False,132,10.969696969696969,,Cambaridae / North America / high-N mixed,False
+Procambarus spiculifer,Cambaridae,Procambarus,383,382,351,340,340,23,1,1,North America,1248309.9088871195,False,91,4.208791208791209,,Cambaridae / North America / medium-N mixed,False
+Faxonius ozarkae,Cambaridae,Faxonius,281,281,272,260,260,3,1,1,North America,218914.3926740722,False,72,3.9027777777777777,,Cambaridae / North America / medium-N mixed,False
+Procambarus simulans,Cambaridae,Procambarus,129,129,112,110,110,10,1,1,North America,1424112.453202426,False,98,1.316326530612245,,Cambaridae / North America / medium-N mixed,False
+Faxonius peruncus,Cambaridae,Faxonius,35,35,35,32,32,1,1,1,North America,3554.897456214502,True,80,0.4375,,Cambaridae / North America / low-N native,False
+Procambarus lecontei,Cambaridae,Procambarus,35,35,34,32,32,8,1,1,North America,7290.316918253707,True,72,0.4861111111111111,,Cambaridae / North America / low-N native,False
+Procambarus suttkusi,Cambaridae,Procambarus,31,31,31,30,30,2,1,1,North America,9309.477739910104,True,89,0.348314606741573,,Cambaridae / North America / low-N native,False
+Cherax quadricarinatus,Parastacidae,Cherax,752,682,608,408,408,175,23,6,Africa,156185282.45086446,False,157,4.789808917197452,,Parastacidae / Africa / mixed,False
+Euastacus armatus,Parastacidae,Euastacus,71,71,66,65,65,4,1,1,Oceania,136913.47966173777,True,8,8.875,,Parastacidae / Oceania / native-only,False
+Parastacus pugnax,Parastacidae,Parastacus,46,45,40,40,40,20,1,1,South America,35526.581781512716,True,122,0.3770491803278688,,Parastacidae / South America / low-N,False
+Samastacus spinifrons,Parastacidae,Samastacus,43,30,24,24,24,26,2,1,South America,180349.1198802512,True,121,0.3553719008264462,,Parastacidae / South America / sub-threshold low-N anchor (N=24),True

@@ -97,20 +97,80 @@ if (!has_true_absences) {
 
 modeling_id <- sprintf("%s__%s__esm_%s", slug, predictor_set, tolower(core))
 
-mods <- BIOMOD_Modeling(
-  bm.format = biomod_data,
-  modeling.id = modeling_id,
-  models = core,
-  CV.strategy = "random",
-  CV.nb.rep = cv_reps,
-  CV.perc = 0.8,
-  OPT.strategy = "bigboss",
-  metric.eval = c("AUCroc", "TSS", "KAPPA"),
-  var.import = 0,
-  seed.val = seed
+write_empty_result <- function(reason) {
+  empty <- data.frame(
+    species = species,
+    species_slug = slug,
+    predictor_set = predictor_set,
+    model_core = core,
+    dataset = NA,
+    pa = NA,
+    run = NA,
+    algo = core,
+    AUC = NA_real_,
+    TSS = NA_real_,
+    Boyce = NA_real_,
+    Kappa = NA_real_,
+    MPA = NA_real_,
+    fit_status = reason,
+    stringsAsFactors = FALSE
+  )
+  outfile_local <- file.path(out_dir, sprintf("%s__%s_esm_%s_evaluations.csv", slug, predictor_set, tolower(core)))
+  write.csv(empty, outfile_local, row.names = FALSE)
+  cat(sprintf("Wrote %s (status: %s)\n", outfile_local, reason))
+}
+
+opt_user_val <- NULL
+if (core == "GBM") {
+  gbm_params <- list(
+    n.trees = 500,
+    interaction.depth = 2,
+    shrinkage = 0.01,
+    n.minobsinnode = 3,
+    bag.fraction = 0.75,
+    train.fraction = 1.0,
+    cv.folds = 0,
+    keep.data = TRUE,
+    verbose = FALSE
+  )
+  opt_user_val <- list(GBM.binary.gbm.gbm = list(for_all_datasets = gbm_params))
+}
+
+mods <- tryCatch(
+  BIOMOD_Modeling(
+    bm.format = biomod_data,
+    modeling.id = modeling_id,
+    models = core,
+    CV.strategy = "random",
+    CV.nb.rep = cv_reps,
+    CV.perc = 0.8,
+    OPT.strategy = if (is.null(opt_user_val)) "bigboss" else "user.defined",
+    OPT.user.val = opt_user_val,
+    metric.eval = c("AUCroc", "TSS", "KAPPA"),
+    var.import = 0,
+    seed.val = seed
+  ),
+  error = function(e) {
+    cat(sprintf("BIOMOD_Modeling failed: %s\n", conditionMessage(e)))
+    NULL
+  }
 )
 
-eval_df <- get_evaluations(mods)
+if (is.null(mods)) {
+  write_empty_result("fit_error_biomod_modeling")
+  quit(status = 0)
+}
+
+eval_df <- tryCatch(get_evaluations(mods), error = function(e) {
+  cat(sprintf("get_evaluations failed: %s\n", conditionMessage(e)))
+  NULL
+})
+
+if (is.null(eval_df) || !is.data.frame(eval_df) || nrow(eval_df) == 0) {
+  write_empty_result("no_evaluations_returned")
+  quit(status = 0)
+}
+
 cat("\nEvaluation data frame columns:\n"); print(names(eval_df))
 cat("First few rows:\n"); print(head(eval_df, 3))
 
@@ -179,5 +239,6 @@ names(wide)[names(wide) == "full.name"] <- "dataset"
 names(wide)[names(wide) == "PA"] <- "pa"
 
 outfile <- file.path(out_dir, sprintf("%s__%s_esm_%s_evaluations.csv", slug, predictor_set, tolower(core)))
-write.csv(wide[, intersect(c("species","species_slug","predictor_set","model_core","dataset","pa","run","algo","AUC","TSS","Boyce","Kappa","MPA"), names(wide))], outfile, row.names = FALSE)
+wide$fit_status <- "ok"
+write.csv(wide[, intersect(c("species","species_slug","predictor_set","model_core","dataset","pa","run","algo","AUC","TSS","Boyce","Kappa","MPA","fit_status"), names(wide))], outfile, row.names = FALSE)
 cat(sprintf("Wrote %s\n", outfile))
