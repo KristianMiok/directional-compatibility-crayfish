@@ -228,8 +228,16 @@ if (!inherits(pred_df, "try-error") && is.data.frame(pred_df) && "pred" %in% nam
                             obs = vals[ok][obs[ok] == 1],
                             PEplot = FALSE), silent = TRUE)
     if (!inherits(eb, "try-error")) {
-      if (!is.null(eb$cor)) wide$Boyce[i] <- as.numeric(eb$cor)
-      else if (!is.null(eb$Spearman.cor)) wide$Boyce[i] <- as.numeric(eb$Spearman.cor)
+      boyce_val <- NA_real_
+      if (!is.null(eb$cor)) boyce_val <- as.numeric(eb$cor)
+      else if (!is.null(eb$Spearman.cor)) boyce_val <- as.numeric(eb$Spearman.cor)
+      # Treat ecospat.boyce sentinel returns as NA:
+      #   - NaN: classification cell had zero variance
+      #   - exactly -1.0 co-occurring with AUC > 0.5: known ecospat degeneracy
+      #     (all obs in one pred-suitability class, monotone F-ratio by chance)
+      auc_this <- if (!is.na(wide$AUC[i])) wide$AUC[i] else 0
+      if (!is.na(boyce_val) && boyce_val == -1.0 && auc_this > 0.5) boyce_val <- NA_real_
+      wide$Boyce[i] <- boyce_val
     }
     wide$MPA[i] <- mean(vals[ok] >= 0.5)
   }
