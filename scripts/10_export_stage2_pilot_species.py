@@ -29,12 +29,14 @@ def main() -> None:
     parser.add_argument("--input", default="data/raw/combined_data_true_master.csv")
     parser.add_argument("--output-dir", default="data/processed/stage2_pilot")
     parser.add_argument("--bg-mult", type=int, default=3)
+    parser.add_argument("--output-slug", default=None,
+                        help="Override slug for output filename. Default: derived via legacy slugify_species() for back-compat with Stage 2.")
     args = parser.parse_args()
 
     species = args.species
     predictor_set = args.predictor_set
     predictors = PREDICTOR_SETS[predictor_set]
-    slug = slugify_species(species)
+    slug = args.output_slug if args.output_slug else slugify_species(species)
 
     df = pd.read_csv(args.input, low_memory=False)
 
