@@ -39,11 +39,6 @@ def main() -> None:
     ax2.axis("off")
     ax2.set_title("B", loc="left", fontweight="bold", fontsize=16, pad=8)
 
-    fig.suptitle(
-        "Community 1 structure: within-community compatibility and reach into Cambaridae clusters",
-        fontsize=15,
-        y=0.98,
-    )
 
     fig.savefig(OUT_FP, dpi=300, bbox_inches="tight")
     plt.close(fig)

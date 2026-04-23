@@ -141,7 +141,6 @@ def plot_clustered_heatmap(
     ax_heat.set_xticklabels([ordered_species[i] for i in tick_idx], rotation=90, fontsize=7)
     ax_heat.set_yticklabels([ordered_species[i] for i in tick_idx], fontsize=7)
 
-    ax_heat.set_title("Clustered directional compatibility heatmap\nfull_geofresh / GBM", fontsize=14)
     ax_heat.set_xlabel("Target species (clustered order)")
     ax_heat.set_ylabel("Source species (clustered order)")
 
@@ -169,7 +168,6 @@ def plot_simple_heatmap(
     ax.set_xticklabels([ordered_species[i] for i in tick_idx], rotation=90, fontsize=7)
     ax.set_yticklabels([ordered_species[i] for i in tick_idx], fontsize=7)
 
-    ax.set_title("Clustered directional compatibility matrix\nfull_geofresh / GBM", fontsize=14)
     ax.set_xlabel("Target species (clustered order)")
     ax.set_ylabel("Source species (clustered order)")
 

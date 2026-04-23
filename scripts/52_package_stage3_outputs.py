@@ -168,7 +168,6 @@ def plot_top10_asymmetric_pairs(asym_pairs: pd.DataFrame, outpath: Path) -> None
     ax.set_ylim(-1, len(top10))
     ax.set_yticks([])
     ax.set_xlabel("Mean suitability")
-    ax.set_title("Top 10 most asymmetric species pairs")
     ax.grid(True, axis="x", alpha=0.3)
 
     ax.plot([], [], marker="o", linestyle="None", label="A → B")
@@ -206,7 +205,6 @@ def plot_zoomed_matrix(labels: list[str], submat: np.ndarray, outpath: Path) -> 
                 fontsize=9,
             )
 
-    ax.set_title("Procambarus fallax complex subcluster\n(full_geofresh / GBM mean suitability)")
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
     cbar.set_label("Mean suitability")
 
