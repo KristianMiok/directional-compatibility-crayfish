@@ -1,0 +1,3 @@
+rank_cross_continental,rank,species_a,species_b,a_to_b,b_to_a,abs_diff,signed_diff_a_minus_b,family_a,genus_a,modal_continent_a,family_b,genus_b,modal_continent_b
+1,11,Pacifastacus leniusculus,Parastacus pugnax,0.9535332918167114,0.2000479102134704,0.753485381603241,0.753485381603241,Astacidae,Pacifastacus,Europe,Parastacidae,Parastacus,South America
+2,13,Euastacus armatus,Pontastacus leptodactylus,0.0336765050888061,0.7825089693069458,0.7488324642181396,-0.7488324642181396,Parastacidae,Euastacus,Oceania,Astacidae,Pontastacus,Europe

@@ -1,0 +1,5 @@
+,mean_suitability,fraction_above,directional_schoeners_d,directional_warrens_i
+mean_suitability,20,16,1,2
+fraction_above,16,20,2,4
+directional_schoeners_d,1,2,20,17
+directional_warrens_i,2,4,17,20

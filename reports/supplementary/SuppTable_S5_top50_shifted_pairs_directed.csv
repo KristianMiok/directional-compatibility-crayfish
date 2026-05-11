@@ -1,0 +1,51 @@
+rank,species_a,species_b,direction,full_geofresh,climate_local,diff_full_minus_climate,abs_diff
+1,Cambarus parvoculus,Cambarus georgiae,Cambarus parvoculus -> Cambarus georgiae,0.07441249489784241,0.8025062680244446,-0.7280937731266022,0.7280937731266022
+2,Faxonius holti,Procambarus ouachitae,Faxonius holti -> Procambarus ouachitae,0.7642378211021423,0.059075675904750824,0.7051621451973915,0.7051621451973915
+3,Cambarus hystricosus,Procambarus plumimanus,Cambarus hystricosus -> Procambarus plumimanus,0.1267285794019699,0.8073429465293884,-0.6806143671274185,0.6806143671274185
+4,Faxonius leptogonopodus,Faxonius alabamensis,Faxonius leptogonopodus -> Faxonius alabamensis,0.026102323085069656,0.6990000009536743,-0.6728976778686047,0.6728976778686047
+5,Lacunicambarus nebrascensis,Procambarus verrucosus,Lacunicambarus nebrascensis -> Procambarus verrucosus,0.6761749982833862,0.015656251460313797,0.6605187468230724,0.6605187468230724
+6,Faxonius leptogonopodus,Faxonius yanahlindus,Faxonius leptogonopodus -> Faxonius yanahlindus,0.008181818760931492,0.6514073014259338,-0.6432254826650023,0.6432254826650023
+7,Lacunicambarus nebrascensis,Faxonius virilis,Lacunicambarus nebrascensis -> Faxonius virilis,0.03033735230565071,0.6687131524085999,-0.6383758001029491,0.6383758001029491
+8,Faxonius mirus,Cambarus elkensis,Faxonius mirus -> Cambarus elkensis,0.7081478238105774,0.08263912796974182,0.6255086958408356,0.6255086958408356
+9,Procambarus viaeviridis,Faxonius nana,Procambarus viaeviridis -> Faxonius nana,0.11107844114303589,0.7287098169326782,-0.6176313757896423,0.6176313757896423
+10,Parastacus pugnax,Cambaroides similis,Parastacus pugnax -> Cambaroides similis,0.9072142243385315,0.30732861161231995,0.5998856127262115,0.5998856127262115
+11,Faxonius leptogonopodus,Faxonius eupunctus,Faxonius leptogonopodus -> Faxonius eupunctus,0.7430788278579712,0.1459151655435562,0.597163662314415,0.597163662314415
+12,Lacunicambarus nebrascensis,Procambarus gracilis,Lacunicambarus nebrascensis -> Procambarus gracilis,0.09957163035869598,0.6947503089904785,-0.5951786786317825,0.5951786786317825
+13,Cambarus rusticiformis,Faxonius alabamensis,Cambarus rusticiformis -> Faxonius alabamensis,0.10780464112758636,0.6892697811126709,-0.5814651399850845,0.5814651399850845
+14,Euastacus armatus,Procambarus fallax,Euastacus armatus -> Procambarus fallax,0.14407221972942352,0.7243666052818298,-0.5802943855524063,0.5802943855524063
+15,Procambarus vioscai paynei,Cambarus reflexus,Procambarus vioscai paynei -> Cambarus reflexus,0.6196500062942505,0.04263000562787056,0.5770200006663799,0.5770200006663799
+16,Faxonius illinoiensis,Faxonius eupunctus,Faxonius illinoiensis -> Faxonius eupunctus,0.06627272814512253,0.642430305480957,-0.5761575773358345,0.5761575773358345
+17,Cambarus scotti,Faxonius mirus,Cambarus scotti -> Faxonius mirus,0.7068235278129578,0.13621175289154053,0.5706117749214172,0.5706117749214172
+18,Procambarus vioscai paynei,Procambarus hirsutus,Procambarus vioscai paynei -> Procambarus hirsutus,0.5928000211715698,0.02777778171002865,0.5650222394615412,0.5650222394615412
+19,Cambarus lenati,Cambarus reburrus,Cambarus lenati -> Cambarus reburrus,0.12873999774456024,0.69336998462677,-0.5646299868822098,0.5646299868822098
+20,Faxonius leptogonopodus,Faxonius macrus,Faxonius leptogonopodus -> Faxonius macrus,0.6307225823402405,0.06943225860595703,0.5612903237342834,0.5612903237342834
+21,Procambarus seminolae,Procambarus kensleyi,Procambarus seminolae -> Procambarus kensleyi,0.8568592071533203,0.30428147315979004,0.5525777339935303,0.5525777339935303
+22,Faxonius holti,Procambarus verrucosus,Faxonius holti -> Procambarus verrucosus,0.2644312381744385,0.8101812601089478,-0.5457500219345093,0.5457500219345093
+23,Cambarus jezerinaci,Cambarus lenati,Cambarus jezerinaci -> Cambarus lenati,0.6424866318702698,0.09783332794904709,0.5446533039212227,0.5446533039212227
+24,Procambarus raneyi,Procambarus verrucosus,Procambarus raneyi -> Procambarus verrucosus,0.13803750276565552,0.6745187044143677,-0.5364812016487122,0.5364812016487122
+25,Cambarus hatfieldi,Cambaroides similis,Cambarus hatfieldi -> Cambaroides similis,0.6021357774734497,0.06955715268850327,0.5325786247849464,0.5325786247849464
+26,Faxonius leptogonopodus,Faxonius mirus,Faxonius leptogonopodus -> Faxonius mirus,0.006582352798432112,0.5350470542907715,-0.5284647014923394,0.5284647014923394
+27,Procambarus pubescens,Procambarus vioscai paynei,Procambarus pubescens -> Procambarus vioscai paynei,0.22911112010478973,0.7540111541748047,-0.524900034070015,0.524900034070015
+28,Faxonius holti,Procambarus hayi,Faxonius holti -> Procambarus hayi,0.5416250228881836,0.02528499998152256,0.516340022906661,0.516340022906661
+29,Euastacus armatus,Procambarus alleni,Euastacus armatus -> Procambarus alleni,0.1368705928325653,0.6528705954551697,-0.5160000026226044,0.5160000026226044
+30,Procambarus viaeviridis,Faxonius macrus,Procambarus viaeviridis -> Faxonius macrus,0.07801935821771622,0.5934323072433472,-0.515412949025631,0.515412949025631
+31,Cambarus rusticiformis,Faxonius yanahlindus,Cambarus rusticiformis -> Faxonius yanahlindus,0.1839054524898529,0.6991999745368958,-0.5152945220470428,0.5152945220470428
+32,Faxonius holti,Procambarus parasimulans,Faxonius holti -> Procambarus parasimulans,0.5295714139938354,0.01598571427166462,0.5135856997221708,0.5135856997221708
+33,Faxonella clypeata,Faxonius leptogonopodus,Faxonella clypeata -> Faxonius leptogonopodus,0.08997272700071335,0.6015272736549377,-0.5115545466542244,0.5115545466542244
+34,Cambarus reflexus,Procambarus suttkusi,Cambarus reflexus -> Procambarus suttkusi,0.6679181456565857,0.15771819651126862,0.5101999491453171,0.5101999491453171
+35,Cambarellus (Pandicambarus) shufeldtii,Faxonius eupunctus,Cambarellus (Pandicambarus) shufeldtii -> Faxonius eupunctus,0.28994545340538025,0.793551504611969,-0.5036060512065887,0.5036060512065887
+36,Faxonius etnieri,Procambarus kensleyi,Faxonius etnieri -> Procambarus kensleyi,0.5529037117958069,0.0508962906897068,0.5020074211061001,0.5020074211061001
+37,Faxonius neglectus neglectus,Faxonius kentuckiensis,Faxonius neglectus neglectus -> Faxonius kentuckiensis,0.1680595874786377,0.6693318486213684,-0.5012722611427307,0.5012722611427307
+38,Procambarus viaeviridis,Faxonius eupunctus,Procambarus viaeviridis -> Faxonius eupunctus,0.09941212087869644,0.6004726886749268,-0.5010605677962303,0.5010605677962303
+39,Cambarus jezerinaci,Cambarus johni,Cambarus jezerinaci -> Cambarus johni,0.6835728287696838,0.18385432660579681,0.499718502163887,0.499718502163887
+40,Procambarus viaeviridis,Faxonius leptogonopodus,Procambarus viaeviridis -> Faxonius leptogonopodus,0.15428180992603302,0.6520363688468933,-0.4977545589208603,0.4977545589208603
+41,Cambarellus (Pandicambarus) shufeldtii,Faxonius longidigitus,Cambarellus (Pandicambarus) shufeldtii -> Faxonius longidigitus,0.1179058775305748,0.6138705611228943,-0.4959646835923195,0.4959646835923195
+42,Procambarus pearsei,Faxonius virginiensis,Procambarus pearsei -> Faxonius virginiensis,0.5568350553512573,0.06465999782085419,0.49217505753040314,0.49217505753040314
+43,Faxonius holti,Faxonius chickasawae,Faxonius holti -> Faxonius chickasawae,0.5538410544395447,0.06984102725982666,0.484000027179718,0.484000027179718
+44,Procambarus parasimulans,Procambarus kensleyi,Procambarus parasimulans -> Procambarus kensleyi,0.6761406660079956,0.19815556704998016,0.47798509895801544,0.47798509895801544
+45,Cambarellus (Pandicambarus) shufeldtii,Cambarus hubbsi,Cambarellus (Pandicambarus) shufeldtii -> Cambarus hubbsi,0.16460001468658447,0.6392427086830139,-0.47464269399642944,0.47464269399642944
+46,Cambarellus (Pandicambarus) shufeldtii,Faxonius nana,Cambarellus (Pandicambarus) shufeldtii -> Faxonius nana,0.10612156987190247,0.5806509852409363,-0.4745294153690338,0.4745294153690338
+47,Faxonius erichsonianus,Faxonius virginiensis,Faxonius erichsonianus -> Faxonius virginiensis,0.10934499651193619,0.583234965801239,-0.4738899692893028,0.4738899692893028
+48,Faxonius leptogonopodus,Faxonius ozarkae,Faxonius leptogonopodus -> Faxonius ozarkae,0.6035143733024597,0.13137909770011902,0.4721352756023407,0.4721352756023407
+49,Faxonius forceps,Faxonius indianensis,Faxonius forceps -> Faxonius indianensis,0.1565428525209427,0.6264618635177612,-0.46991901099681854,0.46991901099681854
+50,Faxonius leptogonopodus,Cambarus girardianus,Faxonius leptogonopodus -> Cambarus girardianus,0.007150944322347641,0.47600752115249634,-0.4688565768301487,0.4688565768301487

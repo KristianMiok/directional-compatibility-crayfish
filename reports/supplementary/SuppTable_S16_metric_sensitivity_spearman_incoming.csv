@@ -1,0 +1,5 @@
+,mean_suitability,fraction_above,directional_schoeners_d,directional_warrens_i
+mean_suitability,1.000000,0.970362,0.093816,0.110332
+fraction_above,0.970362,1.000000,0.093996,0.104966
+directional_schoeners_d,0.093816,0.093996,1.000000,0.989034
+directional_warrens_i,0.110332,0.104966,0.989034,1.000000

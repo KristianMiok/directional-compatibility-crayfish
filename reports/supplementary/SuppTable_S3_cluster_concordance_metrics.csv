@@ -1,0 +1,4 @@
+comparison,n_species_used,n_unique_clusters,n_unique_external_labels,adjusted_rand_index,normalized_mutual_info
+cluster_vs_family,155,6,3,-0.006364038199700491,0.09045958383356449
+cluster_vs_genus,155,6,15,0.1759016847280023,0.33232401864422334
+cluster_vs_modal_continent,155,6,5,-0.006136381217847651,0.0992660901416875
