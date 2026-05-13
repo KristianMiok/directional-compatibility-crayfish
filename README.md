@@ -22,31 +22,19 @@ Manuscript submitted to *Ecology* (May 2026, in editorial screening).
 The pipeline is frozen at the version corresponding to the submitted
 manuscript. Post-acceptance changes will be tagged.
 
-## Supplementary tables (publicly archived)
+## Data file in this repository
 
-All tables referenced in the manuscript appendix are available under
-[`reports/supplementary/`](reports/supplementary/):
+Per *Ecology*'s Open Research policy, one oversized data table that
+exceeded the appendix size limit is hosted here rather than in the
+journal's supporting information:
 
-| Table | Content                                                  |
-|-------|----------------------------------------------------------|
-| S1    | Stage 3 compact workbook (XLSX, per-species SDM summary) |
-| S2    | Cluster membership (k=6)                                 |
-| S3    | Cluster concordance metrics                              |
-| S4    | Per-species network metrics (155 × 12)                   |
-| S5    | Top-50 shifted pairs (directed)                          |
-| S6    | Top-50 shifted pairs (undirected)                        |
-| S7    | Top-50 repositioners                                     |
-| S8    | Bootstrap iteration stability                            |
-| S9    | Species top-20 bootstrap frequencies                     |
-| S10   | Community-1 within-community matrix                      |
-| S11   | Community-1 reach into Cambaridae clusters               |
-| S12   | Community-1 cross-continental asymmetric pairs           |
-| S13   | Metric sensitivity — donor top-20 overlap                |
-| S14   | Metric sensitivity — acceptor top-20 overlap             |
-| S15   | Metric sensitivity — Spearman outgoing                   |
-| S16   | Metric sensitivity — Spearman incoming                   |
-| S17   | Bootstrap structural stability                           |
-| S18   | VIF retained per species                                 |
+| File | Content |
+|------|---------|
+| [`reports/supplementary/species_directed_network_metrics.csv`](reports/supplementary/species_directed_network_metrics.csv) | Per-species directional network metrics (155 species × 12 columns: in/out strength, in/out degree, in/out centrality, betweenness, eigenvector centrality, mean pairwise asymmetry, cluster, community) |
+
+All other supplementary tables (cluster membership, top-50 shifted
+pairs, bootstrap stability, sensitivity analyses, VIF) are provided
+in the manuscript appendix, not duplicated here.
 
 ## Repository layout
 
