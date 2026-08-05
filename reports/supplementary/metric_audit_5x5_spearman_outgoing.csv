@@ -1,0 +1,6 @@
+,mean_suitability,fraction_above,directional_schoeners_d,directional_warrens_i,quantile_90_suitability
+mean_suitability,1.000000,0.915098,0.097087,0.250453,0.979015
+fraction_above,0.915098,1.000000,0.044243,0.128977,0.899352
+directional_schoeners_d,0.097087,0.044243,1.000000,0.943121,-0.026480
+directional_warrens_i,0.250453,0.128977,0.943121,1.000000,0.136080
+quantile_90_suitability,0.979015,0.899352,-0.026480,0.136080,1.000000

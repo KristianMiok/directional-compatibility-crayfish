@@ -1,0 +1,6 @@
+,mean_suitability,fraction_above,directional_schoeners_d,directional_warrens_i,quantile_90_suitability
+mean_suitability,20,17,6,7,18
+fraction_above,17,20,6,8,17
+directional_schoeners_d,6,6,20,17,6
+directional_warrens_i,7,8,17,20,7
+quantile_90_suitability,18,17,6,7,20
